@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>me.latinosoft.MultiWall</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <name>MultiWall</name>
+  <summary>Multi-Monitor Wallpaper Manager</summary>
+  <summary xml:lang="es">Gestor de Fondos de Pantalla Multi-Monitor</summary>
+
+  <description>
+    <p>
+      MultiWall is a modern GTK4 application that allows you to set different wallpapers
+      for each monitor in a multi-monitor setup. It provides a real-time preview of your
+      wallpaper configuration and supports various display modes.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Individual wallpaper configuration for each monitor</li>
+      <li>Multiple display modes: fill, fit, stretch, center, and tile</li>
+      <li>Real-time preview of wallpaper layout</li>
+      <li>Image gallery sidebar for quick selection</li>
+      <li>Support for PNG, JPG, WEBP, GIF, AVIF and more</li>
+      <li>Custom background colors</li>
+      <li>Auto-save configuration</li>
+      <li>Multi-language support (English, Spanish)</li>
+    </ul>
+  </description>
+
+  <description xml:lang="es">
+    <p>
+      MultiWall es una aplicación GTK4 moderna que te permite establecer diferentes fondos
+      de pantalla para cada monitor en una configuración multi-monitor. Proporciona una vista
+      previa en tiempo real de tu configuración de fondos de pantalla y soporta varios modos
+      de visualización.
+    </p>
+    <p>Características:</p>
+    <ul>
+      <li>Configuración individual de fondo de pantalla para cada monitor</li>
+      <li>Múltiples modos de visualización: rellenar, ajustar, estirar, centrar y mosaico</li>
+      <li>Vista previa en tiempo real del diseño del fondo de pantalla</li>
+      <li>Barra lateral de galería de imágenes para selección rápida</li>
+      <li>Soporte para PNG, JPG, WEBP, GIF, AVIF y más</li>
+      <li>Colores de fondo personalizados</li>
+      <li>Guardado automático de configuración</li>
+      <li>Soporte multi-idioma (Inglés, Español)</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">me.latinosoft.MultiWall.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main window with preview and monitor configuration</caption>
+      <caption xml:lang="es">Ventana principal con vista previa y configuración de monitores</caption>
+      <image>https://raw.githubusercontent.com/jsnoriegam/multiwall/main/screenshots/main-window.png</image>
+    </screenshot>
+    <!--
+    <screenshot>
+      <caption>Image gallery sidebar</caption>
+      <caption xml:lang="es">Barra lateral con galería de imágenes</caption>
+      <image>https://raw.githubusercontent.com/jsnoriegam/multiwall/main/screenshots/sidebar.png</image>
+    </screenshot>
+    -->
+  </screenshots>
+
+  <url type="homepage">https://github.com/jsnoriegam/multiwall</url>
+  <url type="bugtracker">https://github.com/jsnoriegam/multiwall/issues</url>
+  <url type="vcs-browser">https://github.com/jsnoriegam/multiwall</url>
+  <url type="contribute">https://github.com/jsnoriegam/multiwall/blob/main/CONTRIBUTING.md</url>
+
+  <developer id="me.latinosoft">
+    <name>Juan Salvador Noriega Madrid</name>
+  </developer>
+
+  <content_rating type="oars-1.1" />
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+
+  <requires>
+    <display_length compare="ge">768</display_length>
+  </requires>
+
+  <recommends>
+    <control>pointing</control>
+  </recommends>
+
+  <releases>
+    <release version="0.3.6" date="2025-10-25">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Cambio de id para publicación en flathub</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.3.5" date="2025-10-24">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>About dialog with application information</li>
+          <li>Buttons to clear wallpapers from each monitor</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.3.3" date="2025-10-23">
+      <description>
+        <p>Bundled fonts to prevent inconsistencies.</p>
+      </description>
+    </release>
+    <release version="0.3.2" date="2025-10-23">
+      <description>
+        <p>Added monitor numbers in preview for better identification</p>
+      </description>
+    </release>
+    <release version="0.3.1" date="2025-10-23">
+      <description>
+        <p>Log file implemented</p>
+      </description>
+    </release>
+    <release version="0.3.0" date="2025-10-23">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Side panel with image thumbnails</li>
+          <li>Visual folder navigation for wallpaper selection</li>
+          <li>Custom folder selector with directory tree</li>
+          <li>Refresh and folder change buttons in sidebar</li>
+          <li>Initial support for AVIF images</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.5" date="2025-10-23">
+      <description>
+        <p>Initial public release with core features:</p>
+        <ul>
+          <li>Multi-language support</li>
+          <li>Real-time preview of the configuration</li>
+          <li>Auto-save settings</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+  <categories>
+    <category>Utility</category>
+    <category>Graphics</category>
+  </categories>
+
+  <keywords>
+    <keyword>wallpaper</keyword>
+    <keyword>background</keyword>
+    <keyword>multimonitor</keyword>
+    <keyword>multi-monitor</keyword>
+    <keyword>display</keyword>
+    <keyword xml:lang="es">fondo de pantalla</keyword>
+    <keyword xml:lang="es">monitor</keyword>
+    <keyword xml:lang="es">pantalla</keyword>
+  </keywords>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#667eea</color>
+    <color type="primary" scheme_preference="dark">#764ba2</color>
+  </branding>
+</component>

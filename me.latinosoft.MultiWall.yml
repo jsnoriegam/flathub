@@ -1,0 +1,91 @@
+app-id: me.latinosoft.MultiWall
+runtime: org.gnome.Platform
+runtime-version: '48'
+sdk: org.gnome.Sdk
+command: multiwall
+
+finish-args:
+  # Acceso a X11 y Wayland
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  
+  # Acceso a archivos de usuario
+  - --filesystem=home
+  - --filesystem=xdg-config/multiwall:create
+  
+  # Acceso a D-Bus para gsettings
+  - --socket=session-bus
+  - --talk-name=org.gnome.Shell
+  - --talk-name=org.freedesktop.portal.Desktop
+  
+  # CRÍTICO: Permitir comunicación con el host
+  - --talk-name=org.freedesktop.Flatpak
+  
+  # Acceso al sistema de archivos del host para el wallpaper
+  # El wallpaper se guardará en ~/.var/app/me.latinosoft.MultiWall/config/
+  # que es visible desde el host
+  - --persist=.var/app/me.latinosoft.MultiWall
+  
+  # GPU para preview
+  - --device=dri
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+  - '*.la'
+  - '*.a'
+
+modules:
+  # Python dependencies
+  - name: python3-dependencies
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - pip3 install --prefix=/app --no-cache-dir Pillow pyyaml python-i18n
+    sources: []
+
+  # MultiWall application
+  - name: multiwall
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      # Copiar código fuente
+      - mkdir -p /app/bin
+      - mkdir -p /app/share/multiwall
+      - cp -r multiwall /app/share/multiwall/
+      - cp -r fonts /app/share/multiwall/
+      - cp main.py /app/share/multiwall/
+      
+      # Crear script de lanzamiento
+      - |
+        cat > /app/bin/multiwall << 'EOF'
+        #!/bin/bash
+        export PYTHONPATH="/app/share/multiwall:$PYTHONPATH"
+        cd /app/share/multiwall
+        exec python3 main.py "$@"
+        EOF
+      - chmod +x /app/bin/multiwall
+
+      # Instalar archivo desktop
+      - install -Dm644 me.latinosoft.MultiWall.desktop /app/share/applications/me.latinosoft.MultiWall.desktop
+      # Instalar metainfo
+      - install -Dm644 me.latinosoft.MultiWall.metainfo.xml /app/share/metainfo/me.latinosoft.MultiWall.metainfo.xml      
+      # Instalar icono SVG (escalable)
+      - install -Dm644 multiwall_icon.svg /app/share/icons/hicolor/scalable/apps/me.latinosoft.MultiWall.svg      
+      # Opcional: Generar PNG fallback para compatibilidad
+      - install -Dm644 multiwall_icon.png /app/share/icons/hicolor/512x512/apps/me.latinosoft.MultiWall.png
+    sources:
+      - type: git
+        url: https://github.com/jsnoriegam/multiwall.git
+        tag: v0.3.6
+        commit: c6f472a237f894b49ac80a962111571dab457d76
+      - type: file
+        path: me.latinosoft.MultiWall.desktop
+      - type: file
+        path: me.latinosoft.MultiWall.metainfo.xml
