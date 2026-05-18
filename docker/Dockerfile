@@ -21,8 +21,8 @@ RUN flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.
 # Instalar SDKs y Runtimes necesarios
 # IMPORTANTE: Estos deben coincidir con tu manifest
 RUN flatpak install -y --noninteractive flathub \
-    org.gnome.Platform//48 \
-    org.gnome.Sdk//48 \
+    org.gnome.Platform//50 \
+    org.gnome.Sdk//50 \
     org.freedesktop.Sdk.Extension.rust-stable//23.08
 
 # Crear usuario no-root para el build (más seguro)
