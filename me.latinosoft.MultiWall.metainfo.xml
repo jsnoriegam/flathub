@@ -89,6 +89,18 @@
   </recommends>
 
   <releases>
+    <release version="0.4.0" date="2025-10-31">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Light/Dark mode tab system: configure different wallpapers for each theme mode</li>
+          <li>Intelligent apply logic: applying from Light mode sets both modes, from Dark sets only dark</li>
+          <li>Auto-save per mode: configurations for both modes saved independently</li>
+          <li>Smooth crossfade transition between tabs</li>
+          <li>More robust preview system with independent updates</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.3.6" date="2025-10-25">
       <description>
         <p>New features and improvements:</p>
